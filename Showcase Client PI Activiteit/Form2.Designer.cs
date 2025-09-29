@@ -1,14 +1,14 @@
 ﻿namespace Showcase_Client_PI_Activiteit
 {
-    partial class Form1
+    partial class Form2
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,70 +23,64 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             label1 = new Label();
             textBox1 = new TextBox();
-            button1 = new Button();
             textBox2 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Lucida Console", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 28);
+            label1.Location = new Point(13, 5);
             label1.Name = "label1";
-            label1.Size = new Size(652, 50);
+            label1.Size = new Size(532, 50);
             label1.TabIndex = 0;
-            label1.Text = "PI Client Application";
-            label1.Click += label1_Click;
+            label1.Text = "Connect To Server";
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Lucida Console", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(35, 559);
+            textBox1.Location = new Point(13, 176);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(565, 22);
+            textBox1.Size = new Size(342, 27);
             textBox1.TabIndex = 1;
-            textBox1.Text = "Enter something to send to server";
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Lucida Console", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(606, 557);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 3;
-            button1.Text = "Send";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            textBox1.Text = "Name";
             // 
             // textBox2
             // 
-            textBox2.Font = new Font("Lucida Console", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(12, 81);
-            textBox2.Multiline = true;
+            textBox2.Location = new Point(361, 176);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(986, 470);
-            textBox2.TabIndex = 4;
-            textBox2.Text = "Start chatting";
+            textBox2.Size = new Size(342, 27);
+            textBox2.TabIndex = 2;
+            textBox2.Text = "192.168.178.153";
             // 
-            // Form1
+            // button1
+            // 
+            button1.Location = new Point(716, 174);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 3;
+            button1.Text = "Connect";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1117, 644);
-            Controls.Add(textBox2);
+            ClientSize = new Size(1073, 598);
             Controls.Add(button1);
+            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Form2";
+            Text = "Form2";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -95,7 +89,7 @@
 
         private Label label1;
         private TextBox textBox1;
-        private Button button1;
         private TextBox textBox2;
+        private Button button1;
     }
 }

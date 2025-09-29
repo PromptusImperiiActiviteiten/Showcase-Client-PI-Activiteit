@@ -17,8 +17,7 @@ namespace Showcase_Client_PI_Activiteit
             client = new TcpClient(ipAddress, port);
             stream = client.GetStream();
             Console.WriteLine("Connected to the server.");
-
-            
+                       
         }
 
         public void ReadMessages()
