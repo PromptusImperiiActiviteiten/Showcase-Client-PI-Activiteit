@@ -31,5 +31,15 @@ namespace Showcase_Client_PI_Activiteit
             thread1.Start();
             Program.client.SendInitializingMessage(textBox1.Text);
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             textBox1 = new TextBox();
             button1 = new Button();
@@ -43,22 +44,25 @@
             label1.Size = new Size(652, 50);
             label1.TabIndex = 0;
             label1.Text = "PI Client Application";
-            label1.Click += label1_Click;
+            
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Lucida Console", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(35, 559);
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Font = new Font("Lucida Console", 19F);
+            textBox1.ForeColor = SystemColors.InactiveCaption;
+            textBox1.Location = new Point(49, 563);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(565, 22);
+            textBox1.Size = new Size(725, 39);
             textBox1.TabIndex = 1;
             textBox1.Text = "Enter something to send to server";
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.Click += textBox1_Click;
+            textBox1.KeyDown += textBox1_KeyDown;
             // 
             // button1
             // 
             button1.Font = new Font("Lucida Console", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(606, 557);
+            button1.Location = new Point(829, 559);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 3;
@@ -68,24 +72,29 @@
             // 
             // textBox2
             // 
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.Font = new Font("Lucida Console", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox2.Location = new Point(12, 81);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
             textBox2.ScrollBars = ScrollBars.Both;
             textBox2.Size = new Size(986, 470);
             textBox2.TabIndex = 4;
-            textBox2.Text = "Start chatting";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1117, 644);
+            BackColor = Color.White;
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(1262, 673);
             Controls.Add(textBox2);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(label1);
+            DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

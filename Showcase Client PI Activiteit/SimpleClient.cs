@@ -27,8 +27,9 @@ namespace Showcase_Client_PI_Activiteit
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                form.Invoke((MethodInvoker)(() => form.textBox2.AppendText($"{Environment.NewLine}" + message)));
-                
+                form.Invoke((MethodInvoker)(() => form.textBox2.AppendText($"" + message + Environment.NewLine)));
+
+
             }
         }
 
