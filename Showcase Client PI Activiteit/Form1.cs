@@ -16,10 +16,14 @@ namespace Showcase_Client_PI_Activiteit
         {
 
         }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            Program.client.SendMessage(textBox1.Text);
+            if (textBox1.Text != "")
+            {
+                Program.client.SendMessage(textBox1.Text);
+                textBox1.Clear();
+            }
         }
     }
 }

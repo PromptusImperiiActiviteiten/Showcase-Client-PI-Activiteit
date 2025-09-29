@@ -11,17 +11,13 @@ namespace Showcase_Client_PI_Activiteit
         static void Main()
         {
             client = new SimpleClient();
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form2());
 
-            
-           
 
-            while (true)
-            {
-               
-                client.ReadMessages();
-            }
+            
+       
 
         }
     }
