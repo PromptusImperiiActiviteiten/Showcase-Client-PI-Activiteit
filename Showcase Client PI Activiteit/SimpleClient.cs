@@ -18,11 +18,10 @@ namespace Showcase_Client_PI_Activiteit
             stream = client.GetStream();
             Console.WriteLine("Connected to the server.");
 
-            // Start reading messages in the background
-            ReadMessages();
+            
         }
 
-        private void ReadMessages()
+        public void ReadMessages()
         {
             byte[] buffer = new byte[1024];
             int bytesRead;
