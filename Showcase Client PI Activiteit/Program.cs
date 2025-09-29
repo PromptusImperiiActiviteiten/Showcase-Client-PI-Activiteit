@@ -8,16 +8,19 @@ namespace Showcase_Client_PI_Activiteit
         [STAThread]
         static void Main()
         {
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new Form1());
             SimpleClient client = new SimpleClient();
             client.ConnectToServer("127.0.0.1", 5000); // Connect to localhost
+
+            
 
             Console.WriteLine("Type a message to send:");
             string message = Console.ReadLine();
             client.SendMessage(message);
             
       
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            
         }
     }
 }
