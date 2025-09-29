@@ -29,6 +29,7 @@ namespace Showcase_Client_PI_Activiteit
             Program.client.ConnectToServer(textBox2.Text, 5000);
             Thread thread1 = new Thread(() => Program.client.ReadMessages(frm));
             thread1.Start();
+            Program.client.SendInitializingMessage(textBox1.Text);
         }
     }
 }

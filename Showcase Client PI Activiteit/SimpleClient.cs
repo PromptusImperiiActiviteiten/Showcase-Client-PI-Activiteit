@@ -42,5 +42,13 @@ namespace Showcase_Client_PI_Activiteit
                 Console.WriteLine("Message sent: " + message);
             }
         }
+        public void SendInitializingMessage(string name)
+        {
+            if (stream != null && stream.CanWrite)
+            {
+                byte[] data = Encoding.UTF8.GetBytes("$Init$:Client Name:$[" + name + "]$");
+                stream.Write(data, 0, data.Length);
+            }
+        }
     }
 }

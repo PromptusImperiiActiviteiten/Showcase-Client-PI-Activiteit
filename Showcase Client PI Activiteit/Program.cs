@@ -14,11 +14,6 @@ namespace Showcase_Client_PI_Activiteit
 
             ApplicationConfiguration.Initialize();
             Application.Run(new Form2());
-
-
-            
-       
-
         }
     }
 }
