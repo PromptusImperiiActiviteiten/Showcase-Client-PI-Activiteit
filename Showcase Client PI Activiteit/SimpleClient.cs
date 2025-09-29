@@ -20,15 +20,17 @@ namespace Showcase_Client_PI_Activiteit
                        
         }
 
-        public void ReadMessages()
+        public void ReadMessages(Form1 form)
         {
             byte[] buffer = new byte[1024];
             int bytesRead;
-
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                Console.WriteLine("Server says: " + message);
+                //Console.WriteLine("Server says: " + message);
+                //form.Update();
+                form.textBox2.Text = message;
+                //form.Update();
             }
         }
 

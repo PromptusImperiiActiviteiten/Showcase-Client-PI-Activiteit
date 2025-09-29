@@ -72,7 +72,6 @@
             textBox2.Location = new Point(12, 81);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
             textBox2.Size = new Size(986, 470);
             textBox2.TabIndex = 4;
             textBox2.Text = "Start chatting";
@@ -93,10 +92,9 @@
         }
 
         #endregion
-
-        private Label label1;
         private TextBox textBox1;
         private Button button1;
-        private TextBox textBox2;
+        public TextBox textBox2;
+        public Label label1;
     }
 }

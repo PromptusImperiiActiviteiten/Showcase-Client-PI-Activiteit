@@ -23,7 +23,9 @@ namespace Showcase_Client_PI_Activiteit
             {
                 Program.client.SendMessage(textBox1.Text);
                 textBox1.Clear();
+                
             }
         }
+        
     }
 }

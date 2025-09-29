@@ -22,12 +22,12 @@ namespace Showcase_Client_PI_Activiteit
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            (new Form1()).Show();
+            Form1 frm = new Form1();
+            frm.Show();
             this.Hide();
 
             Program.client.ConnectToServer(textBox2.Text, 5000);
-            Thread thread1 = new Thread(() => Program.client.ReadMessages());
+            Thread thread1 = new Thread(() => Program.client.ReadMessages(frm));
             thread1.Start();
         }
     }
