@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatroomForm));
-            label1 = new Label();
+            headerChatroom = new Label();
             messageTextbox = new TextBox();
             sendMsgToServerButton = new Button();
             chatroomTextbox = new TextBox();
             SuspendLayout();
             // 
-            // label1
+            // headerChatroom
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Lucida Console", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(314, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(652, 50);
-            label1.TabIndex = 0;
-            label1.Text = "PI Client Application";
+            headerChatroom.AutoSize = true;
+            headerChatroom.Font = new Font("Lucida Console", 30F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            headerChatroom.Location = new Point(314, 9);
+            headerChatroom.Name = "headerChatroom";
+            headerChatroom.Size = new Size(652, 50);
+            headerChatroom.TabIndex = 0;
+            headerChatroom.Text = "PI Client Application";
             // 
             // messageTextbox
             // 
@@ -91,7 +91,7 @@
             Controls.Add(chatroomTextbox);
             Controls.Add(sendMsgToServerButton);
             Controls.Add(messageTextbox);
-            Controls.Add(label1);
+            Controls.Add(headerChatroom);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ChatroomForm";
@@ -104,6 +104,6 @@
         private TextBox messageTextbox;
         private Button sendMsgToServerButton;
         public TextBox chatroomTextbox;
-        public Label label1;
+        public Label headerChatroom;
     }
 }
