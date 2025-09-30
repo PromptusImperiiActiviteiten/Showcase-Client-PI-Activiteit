@@ -11,35 +11,25 @@ using System.Windows.Forms;
 namespace Showcase_Client_PI_Activiteit
 {
 
-    public partial class Form2 : Form
+    public partial class LoginScreenForm : Form
     {
 
-        public Form2()
+        public LoginScreenForm()
         {
             InitializeComponent();
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void connectToServerButton_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
+            ChatroomForm frm = new ChatroomForm();
             frm.Show();
             this.Hide();
 
-            Program.client.ConnectToServer(textBox2.Text, 5000);
+            Program.client.ConnectToServer(ipTextBox.Text, 5000);
             Thread thread1 = new Thread(() => Program.client.ReadMessages(frm));
             thread1.Start();
-            Program.client.SendInitializingMessage(textBox1.Text);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            Program.client.SendInitializingMessage(nameTextBox.Text);
         }
     }
 }

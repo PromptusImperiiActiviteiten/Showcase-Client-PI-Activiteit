@@ -13,7 +13,7 @@ namespace Showcase_Client_PI_Activiteit
             client = new SimpleClient();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form2());
+            Application.Run(new LoginScreenForm());
         }
     }
 }

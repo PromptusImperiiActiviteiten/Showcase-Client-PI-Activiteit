@@ -20,14 +20,14 @@ namespace Showcase_Client_PI_Activiteit
                        
         }
 
-        public void ReadMessages(Form1 form)
+        public void ReadMessages(ChatroomForm form)
         {
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                form.Invoke((MethodInvoker)(() => form.textBox2.AppendText($"" + message + Environment.NewLine)));
+                form.Invoke((MethodInvoker)(() => form.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
 
 
             }
