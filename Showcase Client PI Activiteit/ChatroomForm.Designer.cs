@@ -121,6 +121,7 @@
             MaximizeBox = false;
             Name = "ChatroomForm";
             Text = "Chatroom";
+            FormClosing += ChatroomForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

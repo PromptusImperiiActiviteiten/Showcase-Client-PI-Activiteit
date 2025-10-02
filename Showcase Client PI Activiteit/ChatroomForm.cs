@@ -24,11 +24,12 @@ namespace Showcase_Client_PI_Activiteit
         {
             if (messageTextbox.Text != "")
             {
-                Program.client.SendMessage(messageTextbox.Text);
+                Program.client.SendMessage(messageTextbox.Text, this);
                 messageTextbox.Clear();
                 ErrorLabelChat.Text = string.Empty;
             }
-            else {
+            else
+            {
                 ErrorLabelChat.Text = "The chatbox is empty";
             }
         }
@@ -37,8 +38,13 @@ namespace Showcase_Client_PI_Activiteit
         {
             if (chatroomTextbox.Text.Split('\n').Length > 7)
                 chatroomTextbox.ScrollBars = ScrollBars.Vertical;
-            else 
+            else
                 chatroomTextbox.ScrollBars = ScrollBars.Vertical;
+        }
+
+        private void ChatroomForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

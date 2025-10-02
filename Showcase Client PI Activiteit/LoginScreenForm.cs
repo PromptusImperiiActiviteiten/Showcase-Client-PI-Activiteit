@@ -31,12 +31,19 @@ namespace Showcase_Client_PI_Activiteit
 
                 Program.client.ConnectToServer(ipTextBox.Text, 5000);
                 Thread thread1 = new Thread(() => Program.client.ReadMessages(frm));
+                thread1.IsBackground = true;
                 thread1.Start();
                 Program.client.SendInitializingMessage(nameTextBox.Text);
             }
-            else {
+            else
+            {
                 ErrorLabel1.Text = "No name or IP addres was enterd";
             }
+        }
+
+        private void LoginScreenForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

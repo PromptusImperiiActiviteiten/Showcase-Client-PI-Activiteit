@@ -111,6 +111,7 @@
             MaximizeBox = false;
             Name = "LoginScreenForm";
             Text = "Login Screen";
+            FormClosing += LoginScreenForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
