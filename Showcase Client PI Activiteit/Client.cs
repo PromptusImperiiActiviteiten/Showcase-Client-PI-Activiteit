@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Showcase_Client_PI_Activiteit
 {
-    public class SimpleClient
+    public class Client
     {
         private TcpClient client;
         private NetworkStream stream;
@@ -28,8 +28,6 @@ namespace Showcase_Client_PI_Activiteit
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 form.Invoke((MethodInvoker)(() => form.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
-
-
             }
         }
 
@@ -47,7 +45,7 @@ namespace Showcase_Client_PI_Activiteit
         {
             if (stream != null && stream.CanWrite)
             {
-                byte[] data = Encoding.UTF8.GetBytes("$Init$:Client Name:$[" + name + "]$");
+                byte[] data = Encoding.UTF8.GetBytes("101: " + name);
                 stream.Write(data, 0, data.Length);
             }
         }

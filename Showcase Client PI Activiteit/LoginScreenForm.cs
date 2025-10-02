@@ -13,6 +13,7 @@ namespace Showcase_Client_PI_Activiteit
 
     public partial class LoginScreenForm : Form
     {
+        bool darkModeOn = false;
 
         public LoginScreenForm()
         {
@@ -22,14 +23,20 @@ namespace Showcase_Client_PI_Activiteit
 
         private void connectToServerButton_Click(object sender, EventArgs e)
         {
-            ChatroomForm frm = new ChatroomForm();
-            frm.Show();
-            this.Hide();
+            if (nameTextBox.Text != "" && ipTextBox.Text != "")
+            {
+                ChatroomForm frm = new ChatroomForm();
+                frm.Show();
+                this.Hide();
 
-            Program.client.ConnectToServer(ipTextBox.Text, 5000);
-            Thread thread1 = new Thread(() => Program.client.ReadMessages(frm));
-            thread1.Start();
-            Program.client.SendInitializingMessage(nameTextBox.Text);
+                Program.client.ConnectToServer(ipTextBox.Text, 5000);
+                Thread thread1 = new Thread(() => Program.client.ReadMessages(frm));
+                thread1.Start();
+                Program.client.SendInitializingMessage(nameTextBox.Text);
+            }
+            else {
+                ErrorLabel1.Text = "No name or IP addres was enterd";
+            }
         }
     }
 }

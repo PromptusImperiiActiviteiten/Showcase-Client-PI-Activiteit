@@ -2,7 +2,6 @@ namespace Showcase_Client_PI_Activiteit
 {
     public partial class ChatroomForm : Form
     {
-
         public ChatroomForm()
         {
             InitializeComponent();
@@ -13,29 +12,33 @@ namespace Showcase_Client_PI_Activiteit
             SendMessage();
         }
 
-
-        private void messageTextbox_Click(object sender, EventArgs e)
-        {
-            messageTextbox.Clear();
-            messageTextbox.ForeColor = Color.Black;
-        }
-
         private void messageTextbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
                 SendMessage();
             }
         }
         private void SendMessage()
         {
-            if (messageTextbox.Text != "" && messageTextbox.Text != "Enter something to send to server")
+            if (messageTextbox.Text != "")
             {
                 Program.client.SendMessage(messageTextbox.Text);
                 messageTextbox.Clear();
-
-
+                ErrorLabelChat.Text = string.Empty;
             }
+            else {
+                ErrorLabelChat.Text = "The chatbox is empty";
+            }
+        }
+
+        private void chatroomTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (chatroomTextbox.Text.Split('\n').Length > 7)
+                chatroomTextbox.ScrollBars = ScrollBars.Vertical;
+            else 
+                chatroomTextbox.ScrollBars = ScrollBars.Vertical;
         }
     }
 }
