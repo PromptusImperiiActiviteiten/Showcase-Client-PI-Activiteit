@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Showcase_Client_PI_Activiteit
@@ -11,9 +12,10 @@ namespace Showcase_Client_PI_Activiteit
     {
         private TcpClient client;
         private NetworkStream stream;
+        //private Regex incomingMessageRegex = new Regex(@"211");
 
         public void ConnectToServer(string ipAddress, int port)
-        {
+        { 
             client = new TcpClient(ipAddress, port);
             stream = client.GetStream();
             Console.WriteLine("Connected to the server.");
@@ -24,10 +26,14 @@ namespace Showcase_Client_PI_Activiteit
         {
             byte[] buffer = new byte[1024];
             int bytesRead;
+            
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                form.Invoke((MethodInvoker)(() => form.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
+                //if (incomingMessageRegex.IsMatch(message))
+                //{
+                    form.Invoke((MethodInvoker)(() => form.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
+                //}
             }
         }
 
