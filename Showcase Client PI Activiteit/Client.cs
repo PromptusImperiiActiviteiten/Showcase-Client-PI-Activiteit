@@ -42,6 +42,7 @@ namespace Showcase_Client_PI_Activiteit
         {
             if (stream != null && stream.CanWrite)
             {
+                message = "102:" + message;
                 byte[] data = Encoding.UTF8.GetBytes(message);
                 stream.Write(data, 0, data.Length);
                 Console.WriteLine("Message sent: " + message);
@@ -51,7 +52,7 @@ namespace Showcase_Client_PI_Activiteit
         {
             if (stream != null && stream.CanWrite)
             {
-                byte[] data = Encoding.UTF8.GetBytes("101: " + name);
+                byte[] data = Encoding.UTF8.GetBytes("101:" + name);
                 stream.Write(data, 0, data.Length);
             }
         }
