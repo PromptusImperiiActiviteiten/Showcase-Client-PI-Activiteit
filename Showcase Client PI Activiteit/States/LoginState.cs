@@ -11,8 +11,10 @@ namespace Showcase_Client_PI_Activiteit.States
     {
         public override void HandleMessage(string message)
         {
-            if (message.StartsWith("212:")) {
+            if (message.StartsWith("212:"))
+            {
                 FormsCommands.GoToChatroom();
+                FormsCommands.ShowMessageInChatbox(message);
                 client.ChangeState(new ChattingState(client));
             }
         }

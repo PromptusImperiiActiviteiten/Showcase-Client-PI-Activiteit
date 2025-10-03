@@ -27,9 +27,14 @@ namespace Showcase_Client_PI_Activiteit
             stream = client.GetStream();
             Console.WriteLine("Connected to the server.");
 
-            Thread thread1 = new Thread(() => Program.client.ReadMessages());
-            thread1.IsBackground = true;
-            thread1.Start();
+
+
+            if (stream !=null && stream.CanRead)
+            {
+                Thread thread1 = new Thread(() => Program.client.ReadMessages());
+                thread1.IsBackground = true;
+                thread1.Start();
+            }
         }
 
         public void ReadMessages()
