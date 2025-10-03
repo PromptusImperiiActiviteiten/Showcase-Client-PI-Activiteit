@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Showcase_Client_PI_Activiteit.States
 {
-    class LoginState(Client client) : AbstractState(client)
+    class LoginState(ConnectionService client) : AbstractState(client)
     {
         public override void HandleMessage(string message)
         {

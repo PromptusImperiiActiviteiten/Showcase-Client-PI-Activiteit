@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Showcase_Client_PI_Activiteit
 {
-    public class Client
+    public class ConnectionService
     {
         public TcpClient client { get; private set; }
         public NetworkStream stream { get; private set; }
         public AbstractState state { get; private set; }
 
-        public Client()
+        public ConnectionService()
         {
             state = new LoginState(this);
         }

@@ -8,9 +8,9 @@ namespace Showcase_Client_PI_Activiteit.States
 {
     public abstract class AbstractState
     {
-        protected Client client;
+        protected ConnectionService client;
 
-        protected AbstractState(Client client)
+        protected AbstractState(ConnectionService client)
         {
             this.client = client;
         }
