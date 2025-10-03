@@ -10,15 +10,17 @@ namespace Showcase_Client_PI_Activiteit
         public static void SendChatMessage(string message, NetworkStream stream)
         {
 
+            FormsCommands.ShowMessageInChatbox("You:" + message);
             if (message.StartsWith("/whisper:"))
             {
                 message = "103:" + message.Substring(9);
             }
             else {
                 message = "102:" + message;
+
             }
             
-            FormsCommands.ShowMessageInChatbox(message);
+            
 
             if (stream != null && stream.CanWrite)
             {
