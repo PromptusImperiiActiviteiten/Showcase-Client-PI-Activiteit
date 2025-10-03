@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Showcase_Client_PI_Activiteit.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -11,52 +12,40 @@ namespace Showcase_Client_PI_Activiteit
 {
     public class Client
     {
-        private TcpClient client;
-        private NetworkStream stream;
-        private Regex incomingMessageRegex = new Regex(@"^2\d{2}:");
+        public TcpClient client { get; private set; }
+        public NetworkStream stream { get; private set; }
+        public AbstractState state { get; private set; }
+
+        public Client()
+        {
+            state = new LoginState(this);
+        }
 
         public void ConnectToServer(string ipAddress, int port)
-        { 
+        {
             client = new TcpClient(ipAddress, port);
             stream = client.GetStream();
             Console.WriteLine("Connected to the server.");
-                       
+
+            Thread thread1 = new Thread(() => Program.client.ReadMessages());
+            thread1.IsBackground = true;
+            thread1.Start();
         }
 
-        public void ReadMessages(ChatroomForm form)
+        public void ReadMessages()
         {
             byte[] buffer = new byte[1024];
             int bytesRead;
-            
+
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                if (incomingMessageRegex.IsMatch(message))
-                {
-                    form.Invoke((MethodInvoker)(() => form.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
-                }
+                state.HandleMessage(message);
             }
         }
 
-
-        public void SendMessage(string message, ChatroomForm form)
-        {
-            if (stream != null && stream.CanWrite)
-            {
-                message = "102:" + message;
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                stream.Write(data, 0, data.Length);
-
-                form.Invoke((MethodInvoker)(() => form.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
-            }
-        }
-        public void SendInitializingMessage(string name)
-        {
-            if (stream != null && stream.CanWrite)
-            {
-                byte[] data = Encoding.UTF8.GetBytes("101:" + name);
-                stream.Write(data, 0, data.Length);
-            }
+        public void ChangeState(AbstractState newState) {
+            state = newState;
         }
     }
 }

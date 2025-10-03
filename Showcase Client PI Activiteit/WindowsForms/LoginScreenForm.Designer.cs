@@ -84,7 +84,7 @@
             connectToServerButton.TabIndex = 3;
             connectToServerButton.Text = "Connect";
             connectToServerButton.UseVisualStyleBackColor = false;
-            connectToServerButton.Click += connectToServerButton_Click;
+            connectToServerButton.Click += ConnectToServerButton_Click;
             // 
             // ErrorLabel1
             // 

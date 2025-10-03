@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Showcase_Client_PI_Activiteit
 {
     public partial class ChatroomForm : Form
@@ -24,7 +26,7 @@ namespace Showcase_Client_PI_Activiteit
         {
             if (messageTextbox.Text != "")
             {
-                Program.client.SendMessage(messageTextbox.Text, this);
+                Messenger.SendChatMessage(messageTextbox.Text, Program.client.stream);
                 messageTextbox.Clear();
                 ErrorLabelChat.Text = string.Empty;
             }
