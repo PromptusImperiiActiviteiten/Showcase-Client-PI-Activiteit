@@ -122,6 +122,6 @@
         private TextBox nameTextBox;
         private TextBox ipTextBox;
         private Button connectToServerButton;
-        private Label ErrorLabel1;
+        public Label ErrorLabel1 { get; private set; }
     }
 }

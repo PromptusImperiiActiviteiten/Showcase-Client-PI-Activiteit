@@ -14,11 +14,11 @@ namespace Showcase_Client_PI_Activiteit
     {
         public TcpClient client { get; private set; }
         public NetworkStream stream { get; private set; }
-        public AbstractState state { get; private set; }
+        public AbstractState currentActiveState { get; private set; }
 
         public ConnectionService()
         {
-            state = new LoginState(this);
+            currentActiveState = new LoginState(this);
         }
 
         public void ConnectToServer(string ipAddress, int port)
@@ -26,8 +26,6 @@ namespace Showcase_Client_PI_Activiteit
             client = new TcpClient(ipAddress, port);
             stream = client.GetStream();
             Console.WriteLine("Connected to the server.");
-
-
 
             if (stream !=null && stream.CanRead)
             {
@@ -45,12 +43,12 @@ namespace Showcase_Client_PI_Activiteit
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string incommingServerMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                state.HandleMessage(incommingServerMessage);
+                currentActiveState.HandleMessage(incommingServerMessage);
             }
         }
 
         public void ChangeState(AbstractState newState) {
-            state = newState;
+            currentActiveState = newState;
         }
     }
 }

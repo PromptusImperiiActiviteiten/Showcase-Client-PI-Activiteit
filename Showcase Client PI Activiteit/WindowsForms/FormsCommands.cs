@@ -18,9 +18,5 @@ namespace Showcase_Client_PI_Activiteit.WindowsForms
         {
             Program.chatroom.Invoke((MethodInvoker)(() => Program.chatroom.chatroomTextbox.AppendText($"" + newChatboxMessage + Environment.NewLine)));
         }
-
-        public static void ChangeErrorLable(string errorMessage) {
-            Program.chatroom.Invoke((MethodInvoker)(() => Program.loginScreen.ErrorLabel1.Text = errorMessage));
-        }
     }
 }

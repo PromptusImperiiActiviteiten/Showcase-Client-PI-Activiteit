@@ -13,8 +13,6 @@ namespace Showcase_Client_PI_Activiteit
 
     public partial class LoginScreenForm : Form
     {
-        bool darkModeOn = false;
-
         public LoginScreenForm()
         {
             InitializeComponent();

@@ -16,8 +16,6 @@ namespace Showcase_Client_PI_Activiteit.States
                 FormsCommands.GoToChatroom();
                 FormsCommands.ShowMessageInChatbox(incommingServerMessage);
                 client.ChangeState(new ChattingState(client));
-            } else if (incommingServerMessage.StartsWith("222:")) {
-                FormsCommands.ChangeErrorLable(incommingServerMessage);
             }
         }
     }
