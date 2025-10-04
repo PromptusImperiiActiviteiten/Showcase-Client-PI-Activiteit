@@ -2,16 +2,21 @@ namespace Showcase_Client_PI_Activiteit
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static ConnectionService client { get; private set; }
+        public static LoginScreenForm loginScreen { get; private set; }
+        public static ChatroomForm chatroom { get; private set; }
+
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            client = new ConnectionService();
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            loginScreen = new LoginScreenForm();
+            chatroom = new ChatroomForm();
+
+            Application.Run(loginScreen);
         }
     }
 }
