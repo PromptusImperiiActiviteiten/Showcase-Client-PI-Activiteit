@@ -84,7 +84,7 @@
             connectToServerButton.TabIndex = 3;
             connectToServerButton.Text = "Connect";
             connectToServerButton.UseVisualStyleBackColor = false;
-            connectToServerButton.Click += connectToServerButton_Click;
+            connectToServerButton.Click += ConnectToServerButton_Click;
             // 
             // ErrorLabel1
             // 
@@ -122,6 +122,6 @@
         private TextBox nameTextBox;
         private TextBox ipTextBox;
         private Button connectToServerButton;
-        private Label ErrorLabel1;
+        public Label ErrorLabel1 { get; private set; }
     }
 }
