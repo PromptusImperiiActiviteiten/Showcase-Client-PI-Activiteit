@@ -7,34 +7,34 @@ namespace Showcase_Client_PI_Activiteit
 {
     class Messenger
     {
-        public static void SendChatMessage(string message, NetworkStream stream)
+        public static void SendChatMessage(string outgoingChatMessage, NetworkStream clientNetworkStream)
         {
 
-            FormsCommands.ShowMessageInChatbox("You:" + message);
-            if (message.StartsWith("/whisper:"))
+            FormsCommands.ShowMessageInChatbox("You:" + outgoingChatMessage);
+            if (outgoingChatMessage.StartsWith("/whisper:"))
             {
-                message = "103:" + message.Substring(9);
+                outgoingChatMessage = "103:" + outgoingChatMessage.Substring(9);
             }
             else {
-                message = "102:" + message;
+                outgoingChatMessage = "102:" + outgoingChatMessage;
 
             }
             
             
 
-            if (stream != null && stream.CanWrite)
+            if (clientNetworkStream != null && clientNetworkStream.CanWrite)
             {
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                stream.Write(data, 0, data.Length);
+                byte[] data = Encoding.UTF8.GetBytes(outgoingChatMessage);
+                clientNetworkStream.Write(data, 0, data.Length);
             }
         }
 
-        public static void SendInitializingMessage(string name, NetworkStream stream)
+        public static void SendInitializingMessage(string newClientName, NetworkStream clientNetworkStream)
         {
-            if (stream != null && stream.CanWrite)
+            if (clientNetworkStream != null && clientNetworkStream.CanWrite)
             {
-                byte[] data = Encoding.UTF8.GetBytes("101:" + name);
-                stream.Write(data, 0, data.Length);
+                byte[] data = Encoding.UTF8.GetBytes("101:" + newClientName);
+                clientNetworkStream.Write(data, 0, data.Length);
             }
         }
 

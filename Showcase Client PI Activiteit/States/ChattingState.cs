@@ -11,9 +11,9 @@ namespace Showcase_Client_PI_Activiteit.States
     class ChattingState(ConnectionService client) : AbstractState(client)
     {
 
-        public override void HandleMessage(string message)
+        public override void HandleMessage(string incommingServerMessage)
         {
-            FormsCommands.ShowMessageInChatbox(message);
+            FormsCommands.ShowMessageInChatbox(incommingServerMessage);
         }
     }
 }

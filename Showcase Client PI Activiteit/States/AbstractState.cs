@@ -15,6 +15,6 @@ namespace Showcase_Client_PI_Activiteit.States
             this.client = client;
         }
 
-        public abstract void HandleMessage(string message);
+        public abstract void HandleMessage(string incommingServerMessage);
     }
 }

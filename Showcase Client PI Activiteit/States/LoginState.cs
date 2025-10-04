@@ -9,13 +9,15 @@ namespace Showcase_Client_PI_Activiteit.States
 {
     class LoginState(ConnectionService client) : AbstractState(client)
     {
-        public override void HandleMessage(string message)
+        public override void HandleMessage(string incommingServerMessage)
         {
-            if (message.StartsWith("212:"))
+            if (incommingServerMessage.StartsWith("212:"))
             {
                 FormsCommands.GoToChatroom();
-                FormsCommands.ShowMessageInChatbox(message);
+                FormsCommands.ShowMessageInChatbox(incommingServerMessage);
                 client.ChangeState(new ChattingState(client));
+            } else if (incommingServerMessage.StartsWith("222:")) {
+                FormsCommands.ChangeErrorLable(incommingServerMessage);
             }
         }
     }

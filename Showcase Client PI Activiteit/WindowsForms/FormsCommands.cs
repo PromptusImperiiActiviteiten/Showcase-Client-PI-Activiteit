@@ -14,9 +14,13 @@ namespace Showcase_Client_PI_Activiteit.WindowsForms
             Program.loginScreen.Invoke(new Action(() => { Program.loginScreen.Hide(); }));
         }
 
-        public static void ShowMessageInChatbox(string message)
+        public static void ShowMessageInChatbox(string newChatboxMessage)
         {
-            Program.chatroom.Invoke((MethodInvoker)(() => Program.chatroom.chatroomTextbox.AppendText($"" + message + Environment.NewLine)));
+            Program.chatroom.Invoke((MethodInvoker)(() => Program.chatroom.chatroomTextbox.AppendText($"" + newChatboxMessage + Environment.NewLine)));
+        }
+
+        public static void ChangeErrorLable(string errorMessage) {
+            Program.chatroom.Invoke((MethodInvoker)(() => Program.loginScreen.ErrorLabel1.Text = errorMessage));
         }
     }
 }
